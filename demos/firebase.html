@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase</title>
+    <script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+</head>
+<body>
+        
+    <div ng-controller="myCtrl">
+        <div ng-controller="myCtrl">
+            <div ng-repeat="item in list track by $index">{{item.name}}</div>
+        </div>
+
+        <div>
+            <input type="text" ng-model="message" ng-enter="go()">
+        </div>
+    </div>
+
+    <script>
+    var app = angular.module("app",["firebase"]);
+
+    app.directive('ngEnter', function() {
+      return function( scope, elem, attrs ) {
+        elem.bind('keyup', function(e) {
+            if(e.keyCode==13){
+                scope.$apply(attrs.ngEnter);
+            }
+        });
+      };
+    });
+
+
+    app.controller("myCtrl",function($scope,angularFire){
+
+        var ref = new Firebase("https://syssh.firebaseio.com/");
+        
+        $scope.list = [];
+        angularFire(ref, $scope, "list");
+
+
+        $scope.go = function(){
+            $scope.list.push({name:$scope.message});
+        }
+    });
+
+    </script>
+
+</body>
+</html>
+
+

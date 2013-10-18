@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Width D3</title>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.js"></script>
+</head>
+<body>
+    
+    <div ng-controller="myCtrl">
+        <div>{{rating}}</div>
+        <input type="text" ng-model="rating">
+    </div>
+    
+
+    <script>
+    var app = angular.module("app",['d3']);
+
+    angular.module('app')
+    .directive('d3Bars', ['d3Service', function(d3Service) {
+        return {
+            link:function(){
+                var d3 = d3Service;
+
+                var svg = d3.select(ele[0])
+                    .append('svg')
+                    .style('width', '100%');
+
+                  // Browser onresize event
+                  window.onresize = function() {
+                    scope.$apply();
+                  };
+
+                  // hard-code data
+                  scope.data = [
+                    {name: "Greg", score: 98},
+                    {name: "Ari", score: 96},
+                    {name: 'Q', score: 75},
+                    {name: "Loser", score: 48}
+                  ];
+
+                  // Watch for resize event
+                  scope.$watch(function() {
+                    return angular.element($window)[0].innerWidth;
+                  }, function() {
+                    scope.render(scope.data);
+                  });
+
+                  scope.render = function(data) {
+                    // our custom d3 code
+                  }
+            }
+
+        };
+    }]);
+
+    app.controller("myCtrl",[function($scope){
+        $scope.rating = 3;
+    });
+
+    </script>
+
+</body>
+</html>
+
+

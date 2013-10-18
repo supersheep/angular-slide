@@ -1,0 +1,7 @@
+<div class="rating-wrap-big">
+    <ul ng-init='enNames=["one","two","three","four","five"]'>
+        <li ng-repeat="en in enNames" ng-click="toggle($index)">
+            <a class="{{en}}-star{{$index>0?'s':''}} {{$index+1==ratingValue?'active-star':''}}" title="{{words[$index]}}" href="javascript:;"></a>
+        </li>
+    </ul>
+</div>

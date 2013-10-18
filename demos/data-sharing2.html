@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Sharing2</title>
+    <script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.js"></script>
+</head>
+<body>
+    
+    <div ng-controller="motherCtrl">
+        <div>{{message}}</div>
+        <input type="text" ng-model="message">
+        <input type="button" value="share" ng-click="roar()">
+    </div>
+        
+
+
+    <div ng-controller="son1Ctrl">
+        <div>{{message}}</div>
+        <input type="text" ng-model="message">
+    </div>
+    
+    
+    <div ng-controller="son2Ctrl">
+        <div>{{message}}</div>
+        <input type="text" ng-model="message">
+    </div>
+
+
+    <script>
+    var app = angular.module("app",[]);
+
+    app.controller("motherCtrl",function($scope,$rootScope){
+        $scope.roar = function(){
+            $rootScope.$broadcast('dinner',$scope.message);   
+        }
+    });
+
+    app.controller("son1Ctrl",function($scope){
+        $scope.$on('dinner', function(e,val) {
+            $scope.message = val;
+        });
+    });
+
+    app.controller("son2Ctrl",function($scope){
+        $scope.$on('dinner', function(e,val) {
+            $scope.message = val;
+        });
+    });
+
+    </script>
+
+</body>
+</html>
+
+

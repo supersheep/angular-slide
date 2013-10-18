@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+    <section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h1>
+                <span style="font-size: 135.72px;">AngularJS with X</span>
+            </h1>
+        </section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Why angularjs?</h2>
+            <div>
+                <br></div>
+            <div>Community</div>
+            <div>
+                <br></div>
+            <div>Google</div>
+            <div>
+                <br></div>
+            <div>
+                <a href="http://www.google.com/trends/explore#q=angularjs%2C%20knockout.js%2C%20ember.js%2C%20backbone.js&amp;cmpt=q" target="_blank">trends</a>
+                <br></div>
+            <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/spudhsu/images/119044/Screen_Shot_2013-10-15_at___7.19.02.png" data-pinit="registered" style="width: 225.80802325544326px; height: 216.24899609309125px; max-height: none; max-width: none;"></section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>WHAT'S ANGULAR JS</h2>
+            <div>
+                <br></div>
+            <div>
+                HTML enhance for web apps!
+                <br></div>
+        </section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Features</h2>
+            <div>
+                <br></div>
+            <div>
+                <ol>
+                    <li>directive to customize web components</li>
+                    <li>two way data-binding</li>
+                    <li>service/factory to share data between controllers</li>
+                </ol>
+            </div>
+
+        </section>
+
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Data binding</h2>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <pre><code>&lt;div ng-controller="myCtrl"&gt;&nbsp;
+&lt;input ng-model="val"&gt;
+&lt;/div&gt;</code></pre>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <pre><code>app.controller("myCtrl",function($scope){
+    $scope.val = 1
+}) </code></pre>
+            </div>
+        </section>
+
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Take a look</h2>
+            
+            <div><a href="demos/get-start.html" target="_blank">demo</a></div>
+
+        </section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>DIRECTIVE</h2>
+            <div>
+                <br></div>
+            <div>Angular can define directives to enhance html markup!</div>
+            <div>
+                <br></div>
+            <div>
+                <span>look like this</span>
+                <br></div>
+            <div>
+                <br></div>
+            <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/spudhsu/images/118938/Screen_Shot_2013-10-15_at___4.51.45.png" data-pinit="registered"></section>
+    	
+    	<section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>DIRECTIVE - inside link</h2>
+            <div>
+                <br></div>
+            <div>
+                <ul>
+                    <li>
+                        <span style="text-align: center;">Bind DOM Events</span>
+                    </li>
+                    <li>
+                        <span style="text-align: center;">Watch scope values</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div> <font style="font-size: 24px;">link:&nbsp;
+                    <a href="http://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/">
+                        http://www.befundoo.com/university/tutorials/angularjs-directives-tutorial/
+                    </a></font> 
+            </div>
+        </section>    
+	
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>$apply</h2>
+            <div>
+                <br></div>
+            <div>backbone way: Model::set</div>
+            <div>
+                <br></div>
+            <div>vs</div>
+            <div>
+                <br></div>
+            <div>Angular way: $apply</div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <p> <font style="font-size: 24px;">note: use $timeout, $http, $document, $window
+                    <br>
+                    read more:&nbsp;
+                    <a href="https://github.com/mgechev/angularjs-style-guide">https://github.com/mgechev/angularjs-style-guide</a></font> 
+            </p>
+        </section>
+        
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Data Sharing</h2>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>$emit / $boardcast</div>
+            <div>
+                <br></div>
+            <div>with angular service/factory</div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <font style="font-size: 24px;">
+                    read more:&nbsp;
+                    <a href="http://stackoverflow.com/questions/15666048/angular-js-service-vs-provider-vs-factory">
+                        http://stackoverflow.com/.../angular-js-service-vs-provider-vs-factory
+                    </a>
+                </font>
+            </div>
+            <div>
+                <br></div>
+            <div>
+                <a href="http://jsfiddle.net/simpulton/GeAAB/">http://jsfiddle.net/simpulton/GeAAB/</a>
+            </div>
+
+            <div>
+                <a href="demos/data-sharing.html" target="_blank">demo1</a>
+            </div>
+
+            <div>
+                <a href="demos/data-sharing2.html"  target="_blank">demo2</a>
+            </div>
+        </section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>Routing</h2>
+            <div>
+                <br></div>
+            <div>$routeServer</div>
+            <div>
+                <br></div>
+            <div>vs</div>
+            <div>
+                <br></div>
+            <div>$stateServer</div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <br></div>
+            <div>
+                <font style="font-size: 24px;">
+                    read more:&nbsp;
+                    <a href="http://joelhooks.com/blog/2013/07/22/the-basics-of-using-ui-router-with-angularjs/">
+                        http://joelhooks.com/blog/2013/07/22/the-basics-of-using-ui-router-with-angularjs/
+                    </a>
+                </font>
+            </div>
+        </section>
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>with d3</h2>
+            <div>Data-Driven Documents</div>
+            <div><a href="http://d3js.org/" target="_blank">http://d3js.org/</a></div>
+            <div><a href="http://www.ng-newsletter.com/posts/d3-on-angular.html" target="_blank">article</a></div>
+            <div><a href="d3AngularIntegration/app/">demo</a></div>
+            <!-- <div><a href="demos/with-d3.html">demo with d3</a></div> -->
+        </section>
+
+
+        <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+            <h2>with firebase</h2>
+
+            <div><a href="https://www.firebase.com/" target="_blank">https://www.firebase.com/</a></div>
+
+            <div><a href="https://www.firebase.com/blog/2013-10-04-firebase-angular-data-binding.html" target="_blank">article</a></div>
+
+            <div><a href="demos/firebase.html" target="_blank">demo</a></div>
+            <!-- <div><a href="http://firebase.github.io/crowdsourced-fog/" target="_blank">demo</a></div> -->
+            <!-- <div><a href="demos/with-d3.html">demo with d3</a></div> -->
+        </section>
+    </section>
+</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

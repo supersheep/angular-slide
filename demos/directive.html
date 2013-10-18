@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive</title>
+    <script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.js"></script>
+
+    <link rel="stylesheet" href="http://i1.dpfile.com/s/c/app/main/base-old.min.b2b62ce148ec75c4cabac5dde4165e06.css">
+    <link rel="stylesheet" href="http://i1.dpfile.com/s/c/app/shop/shop.min.0661388cd2242727ad203f3eed4fb0b2.css">
+    <script>
+
+    </script>
+    <script src="directives/star-rating.js"></script>
+</head>
+<body>
+    
+    <div ng-controller="myCtrl">
+        <div>{{rating}}</div>
+        <input type="number" ng-model="rating">
+        <div dp-star-rating rating-value="rating"></div>
+    </div>
+    
+
+    <script type="text/ng-template" id="template/rating-template.html">
+        <div class="rating-wrap-big">
+        <ul ng-init='enNames=["one","two","three","four","five"]'>
+            <li ng-repeat="en in enNames" ng-click="toggle($index)">
+                <a class="{{en}}-star{{$index>0?'s':''}} {{$index+1==ratingValue?'active-star':''}}" title="{{words[$index]}}" href="javascript:;"></a>
+            </li>
+        </ul>
+    </div>        
+    </script>
+
+    <script>
+    var app = angular.module("app",[]);
+
+    app.directive("dpStarRating",function(){
+        return {
+            templateUrl:'template/rating-template.html',
+            restrict:"EA",
+            scope: {
+                ratingValue: '='
+            },
+            link:function(scope,element,attr){
+                scope.words = ["很差","差","还行","好","很好"];
+                console.log(scope.ratingValue);
+                scope.toggle = function(index) {
+                   scope.ratingValue = index + 1;
+                };
+
+                function updateStar(newValue){
+                    scope.ratingValue = newValue;
+                }
+                scope.$watch('ratingValue',function(newValue,oldValue){
+                    console.log(scope.ratingValue);
+                    if(newValue){
+                        updateStar(newValue);
+                    }
+                });
+            }
+        }
+    });
+
+
+    app.controller("myCtrl",function($scope){
+        $scope.rating = 3;
+    });
+
+    </script>
+
+</body>
+</html>
+
+

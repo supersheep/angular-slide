@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Sharing1</title>
+    <script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.js"></script>
+</head>
+<body>
+    
+    <div ng-controller="myCtrl">
+        <div>{{rating}}</div>
+        <input type="text" ng-model="data.rating">
+    </div>
+    
+	
+    <div ng-controller="stillMyCtrl">
+        <div>{{rating}}</div>
+        <input type="text" ng-model="data.rating">
+    </div>
+
+
+    <script>
+    var app = angular.module("app",[]);
+
+    app.factory("dataSharingService",function(){
+    	return {
+			data:{rating:4}
+    	}
+    });
+
+
+
+    app.controller("myCtrl",function($scope,dataSharingService){
+    	$scope.data =dataSharingService.data;
+    });
+
+    app.controller("stillMyCtrl",function($scope,dataSharingService){
+    	$scope.data =dataSharingService.data;
+    });
+
+    </script>
+
+</body>
+</html>
+
+
